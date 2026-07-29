@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">    
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="NovaGuesser">
+        <meta name="description" content="A game about guessing Villanova's campus.">
+        <title>NovaGuesser</title>
+        <link rel="icon" href="squareLogo.png" type="image/x-icon">
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    
+    <body>
+
+        <h1>NovaGuesser - Day 1</h1>
+        <main>
+            <img src="Place.jpg" alt="Picture of a spot on Villanova's campus" id = "place" title="Daily Photo" loading="lazy">
+            <h3>Where is this?</h3>
+
+            <select name="guess" id="guess">
+                <optgroup label="Main Campus">
+                    <option value="Alumni Hall" selected>Alumni Hall</option>
+                    <option value="Austin Hall">Austin Hall</option>
+                    <option value="Bartley Hall">Bartley Hall</option>
+                    <option value="Chemical Engineering Building">Chemical Engineering Building</option>
+                    <option value="Connelly Center">Connelly Center</option>
+                    <option value="Corr Hall">Corr Hall</option>
+                    <option value="Delurey Hall">Delurey Hall</option>
+                    <option value="Dougherty Hall">Dougherty Hall</option>
+                    <option value="Driscoll Hall">Driscoll Hall</option>
+                    <option value="Drosdick Hall">Drosdick Hall</option>
+                    <option value="Facilities Management Building">Facilities Management Building</option>
+                    <option value="Falvey Memorial Library">Falvey Memorial Library</option>
+                    <option value="Faris Laboratory">Faris Laboratory</option>
+                    <option value="Fedigan Hall">Fedigan Hall</option>
+                    <option value="Greenhouse">Greenhouse</option>
+                    <option value="Health Services Building">Health Services Building</option>
+                    <option value="John Barry Hall">John Barry Hall</option>
+                    <option value="Mendel Science Center ">Mendel Science Center </option>
+                    <option value="Middleton Hall">Middleton Hall</option>
+                    <option value="Military Sciences Building">Military Sciences Building</option>
+                    <option value="O'Dwyer Hall">O'Dwyer Hall</option>
+                    <option value="St. Augustine Center">St. Augustine Center</option>
+                    <option value="St. Rita Hall">St. Rita Hall</option>
+                    <option value="St. Thomas of Villanova Church">St. Thomas of Villanova Church</option>
+                    <option value="St. Thomas of Villanova Monastery">St. Thomas of Villanova Monastery</option>
+                    <option value="Sheehan Hall">Sheehan Hall</option>
+                    <option value="Simpson Hall">Simpson Hall</option>
+                    <option value="Steam Plant">Steam Plant</option>
+                    <option value="Sullivan Hall">Sullivan Hall</option>
+                    <option value="Tolentine Hall">Tolentine Hall</option>
+                    <option value="Vasey Hall">Vasey Hall</option>
+                    <option value="White Hall">White Hall</option>
+                </optgroup>
+                <optgroup label="Athletics Campus">
+                    <option value="Andrew J. Talley Athletic Center">Andrew J. Talley Athletic Center</option>
+                    <option value="Davis Center">Davis Center</option>
+                    <option value="Finneran Pavilion">Finneran Pavilion</option>
+                    <option value="Galberry Hall">Galberry Hall</option>
+                    <option value="Jake Nevin Field House">Jake Nevin Field House</option>
+                    <option value="Villanova Stadium">Villanova Stadium</option>
+                </optgroup>
+                <optgroup label="South Campus">
+                    <option value="Caughlin Hall">Caughlin Hall</option>
+                    <option value="Donahue Hall">Donahue Hall</option>
+                    <option value="Good Counsel Hall">Good Counsel Hall</option>
+                    <option value="McGuire Hall">McGuire Hall</option>
+                    <option value="St. Katharine Hall">St. Katharine Hall</option>
+                    <option value="St. Monica Hall">St. Monica Hall</option>
+                    <option value="Stanford Hall">Stanford Hall</option>
+                </optgroup>
+                <optgroup label="Lancaster Avenue Campus">
+                    <option value="Canon Hall">Canon Hall</option>
+                    <option value="Dobbin Hall">Dobbin Hall</option>
+                    <option value="Farrell Hall">Farrell Hall</option>
+                    <option value="Friar Hall">Friar Hall</option>
+                    <option value="Geraghty Hall">Geraghty Hall</option>
+                    <option value="Griffin Hall">Griffin Hall</option>
+                    <option value="Hovnanian Hall">Hovnanian Hall</option>
+                    <option value="John and Joan Mullen Center">John and Joan Mullen Center</option>
+                    <option value="Kennedy Hall">Kennedy Hall</option>
+                    <option value="Kintsuba Hall">Kintsuba Hall</option>
+                    <option value="McGuinn Hall">McGuinn Hall</option>
+                    <option value="Moriarty Hall">Moriarty Hall</option>
+                    <option value="Riley Hall">Riley Hall</option>
+                    <option value="Stone Hall">Stone Hall</option>
+                    <option value="Trinity Hall">Trinity Hall</option>
+                </optgroup>
+                <optgroup label="West Campus">
+                    <option value="Burns Hall">Burns Hall</option>
+                    <option value="Farley Hall">Farley Hall</option>
+                    <option value="Gallagher Hall">Gallagher Hall</option>
+                    <option value="Gallen Hall">Gallen Hall</option>
+                    <option value="Garey Hall">Garey Hall</option>
+                    <option value="Jackson Hall">Jackson Hall</option>
+                    <option value="John F. Scarpa Hall">John F. Scarpa Hall</option>
+                    <option value="Klekotka Hall">Klekotka Hall</option>
+                    <option value="Moulden Hall">Moulden Hall</option>
+                    <option value="Picotte Hall at Dundale">Picotte Hall at Dundale</option>
+                    <option value="Rudolph Hall">Rudolph Hall</option>
+                    <option value="St. Clare Hall">St. Clare Hall</option>
+                    <option value="St. Mary Hall">St. Mary Hall</option>
+                    <option value="Welsh Hall">Welsh Hall</option>
+                </optgroup>
+            </select>
+            <br>   
+            <button id="button" onclick="anFunc()"> Submit Guess </button>
+            <p id="guessMessage"> </p>
+            <script>
+                let correct = "Bartley Hall"
+                let day = "1"
+                
+                let done = false
+                let attempt = 1
+                let winMessage = ""
+                function anFunc() {                    
+                    if (attempt < 7 && done != true)
+                    {
+                        let guess = document.querySelector("#guess");
+                        let guessMessage = document.querySelector("#guessMessage");
+                        guessMessage.innerHTML = guessMessage.innerHTML + "<br>" + guess.value;
+                        if (guess.value == correct) {
+                            guessMessage.innerHTML = guessMessage.innerHTML + " 🟩"
+                            done = true
+                            for (let i = 1; i < 7; i++) {
+                                if (attempt == i) {
+                                    winMessage = winMessage + "🟩"
+                                }
+                                else if (attempt > i) {
+                                    winMessage = winMessage + "🟥"
+                                }
+                                else {
+                                    winMessage = winMessage + "⬛"
+                                }
+                            }
+                            guessMessage.innerHTML = "NovaGuesser #" + day + " " + attempt + "/6<br>" + winMessage + "<br><br><br>Today's spot was " + correct + "."
+                        }
+                        else {
+                            guessMessage.innerHTML = guessMessage.innerHTML + " 🟥"
+                            attempt++;
+                            if (attempt == 7) {
+                                guessMessage.innerHTML = "NovaGuesser #" + day + " x/6<br>🟥🟥🟥🟥🟥🟥<br><br><br>Today's spot was " + correct + "."
+                            }
+                        }
+
+                    }  
+                }
+            </script>
+
+            <hr>
+
+            <p>
+                Created by Cayen Swierczek<br><br>
+                Email: cswier01@villanova.edu
+            </p>
+
+
+
+
+
+        </main>
+    </body>
