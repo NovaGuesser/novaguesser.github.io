@@ -26,11 +26,11 @@ header {
 }
 
 #guess {
-    font-size: .5in;
+    font-size: 30px;
 }
 
 #button {
-    font-size: .5in;
+    font-size: 30px;
 }
 
 #guessMessage {
