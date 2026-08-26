@@ -348,7 +348,7 @@ h3 {
     #place,
     .guess-picker,
     #guessMessage {
-        width: calc(100vw - 0.5rem);
+        width: 100%;
     }
 
     #place {
