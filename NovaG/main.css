@@ -1,0 +1,333 @@
+html {
+    font-size: clamp(15px, 1.2vw, 20px);
+    font-family: sans-serif;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    background-color: rgb(39, 39, 61); 
+    color: whitesmoke;
+    text-align: center;
+    padding-top: calc(clamp(68px, 8vw, 100px) + 1.8rem);
+}
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(15, 15, 25, 0.96);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.12);
+    box-sizing: border-box;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: clamp(68px, 8vw, 100px);
+    padding: clamp(8px, 1.5vw, 14px) 4vw;
+}
+
+.logo {
+    display: block;
+    max-height: calc(clamp(68px, 8vw, 100px) - 16px);
+    width: auto;
+    max-width: min(90vw, 420px);
+    object-fit: contain;
+}
+
+.disclosure-button {
+    position: fixed;
+    top: clamp(68px, 8vw, 100px);
+    right: clamp(10px, 3vw, 36px);
+    z-index: 999;
+    border: 0;
+    padding: 3px 0;
+    background: transparent;
+    color: #9b9b9b;
+    font: inherit;
+    font-size: clamp(0.85rem, 1.4vw, 1rem);
+    cursor: pointer;
+}
+
+.disclosure-button:hover,
+.disclosure-button:focus-visible {
+    color: whitesmoke;
+    text-decoration: underline;
+}
+
+h1 {
+    margin-top: 0;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+h3 {
+    font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+}
+
+#place {
+    box-sizing: border-box;
+    max-width: 640px;
+    width: min(calc(100vw - 2rem), 640px);
+    height: auto;
+    border: clamp(4px, 1vw, 10px) solid darkslateblue;
+    margin-top: clamp(0.5rem, 2vw, 1rem);
+}
+
+.guess-picker {
+    width: min(calc(100vw - 2rem), 640px);
+    margin: 0 auto;
+    text-align: left;
+}
+
+.guess-options {
+    height: clamp(140px, 25vh, 260px);
+    overflow-y: auto;
+    padding: 8px;
+    background: rgb(25, 25, 40);
+    border: 2px solid darkslateblue;
+    border-radius: 8px 8px 0 0;
+}
+
+.guess-option {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    border: 0;
+    background: transparent;
+    color: whitesmoke;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.guess-option:hover,
+.guess-option.active {
+    background: darkslateblue;
+}
+
+.guess-option small {
+    display: block;
+    margin-top: 2px;
+    color: lightgray;
+    font-size: 0.75rem;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.guess-picker label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+#guessSearch {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid darkslateblue;
+    border-radius: 0 0 8px 8px;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+}
+
+.game-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(6px, 1.5vw, 10px);
+    padding: 0 1rem;
+}
+
+#button,
+#infoButton {
+    font-size: clamp(1rem, 2.5vw, 1.6rem);
+    padding: clamp(8px, 1vw, 12px) clamp(10px, 1.5vw, 18px);
+}
+
+#infoButton {
+    font-size: clamp(0.85rem, 1.8vw, 1rem);
+}
+
+#guessMessage {
+    width: min(calc(100vw - 2rem), 640px);
+    margin: clamp(16px, 3vw, 24px) auto;
+}
+
+.guess-result {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 2vw, 18px);
+    min-height: clamp(52px, 8vw, 64px);
+    margin: clamp(7px, 1.5vw, 10px) 0;
+    padding: clamp(6px, 1vw, 8px) clamp(10px, 2vw, 14px);
+    background: rgb(25, 25, 40);
+    border-radius: 6px;
+    text-align: left;
+}
+
+.result-box {
+    flex: 0 0 clamp(34px, 6vw, 44px);
+    width: clamp(34px, 6vw, 44px);
+    height: clamp(34px, 6vw, 44px);
+    border-radius: 4px;
+}
+
+.result-box.correct {
+    background: #4caf50;
+}
+
+.result-box.same-campus {
+    background: #d6a928;
+}
+
+.result-box.incorrect {
+    background: #c83b3b;
+}
+
+.result-text {
+    font-size: clamp(0.9rem, 2.2vw, 1.15rem);
+    overflow-wrap: anywhere;
+}
+
+.end-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.72);
+}
+
+.info-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 1900;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.72);
+}
+
+.info-screen[hidden] {
+    display: none;
+}
+
+.disclosure-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 2100;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.72);
+}
+
+.disclosure-screen[hidden] {
+    display: none;
+}
+
+.disclosure-card {
+    position: relative;
+    box-sizing: border-box;
+    width: min(calc(100vw - 2rem), 420px);
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+    padding: clamp(24px, 6vw, 32px) clamp(16px, 5vw, 24px) clamp(16px, 5vw, 24px);
+    background: rgb(39, 39, 61);
+    border: 2px solid darkslateblue;
+    border-radius: 8px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.disclosure-card h2 {
+    margin-top: 0;
+}
+
+.info-card {
+    position: relative;
+    box-sizing: border-box;
+    width: min(calc(100vw - 2rem), 420px);
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+    padding: clamp(24px, 6vw, 32px) clamp(16px, 5vw, 24px) clamp(16px, 5vw, 24px);
+    background: rgb(39, 39, 61);
+    border: 2px solid darkslateblue;
+    border-radius: 8px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    text-align: left;
+}
+
+.info-card h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.info-box {
+    display: inline-block;
+    width: 1.5em;
+    margin-right: 8px;
+    text-align: center;
+}
+
+.info-box.correct {
+    color: #4caf50;
+}
+
+.info-box.same-campus {
+    color: #d6a928;
+}
+
+.info-box.incorrect {
+    color: #c83b3b;
+}
+
+.info-box.unused {
+    color: #999;
+}
+
+.end-screen[hidden] {
+    display: none;
+}
+
+.end-card {
+    position: relative;
+    box-sizing: border-box;
+    width: min(calc(100vw - 2rem), 420px);
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+    padding: clamp(24px, 6vw, 32px) clamp(16px, 5vw, 24px) clamp(16px, 5vw, 24px);
+    background: rgb(39, 39, 61);
+    border: 2px solid darkslateblue;
+    border-radius: 8px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.end-card h2 {
+    margin-top: 0;
+}
+
+.end-result {
+    white-space: pre-line;
+    line-height: 1.6;
+}
+
+.share-status {
+    min-height: 1.2em;
+    margin-bottom: 0;
+    color: lightgreen;
+    font-size: 0.9rem;
+}
+
+.close-button {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    border: 0;
+    background: transparent;
+    color: whitesmoke;
+    font-size: 28px;
+    cursor: pointer;
+}
