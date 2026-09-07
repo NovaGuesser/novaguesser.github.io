@@ -208,8 +208,11 @@
                 })
 
                 function showOptions(searchTerm = "") {
-                    const matchingOptions = Array.from(guess.options).filter(option =>
-                        option.textContent.toLowerCase().includes(searchTerm.toLowerCase())
+                    function showOptions(searchTerm = "") {
+                        const term = searchTerm.toLowerCase()
+                        const matchingOptions = Array.from(guess.options).filter(option =>
+                            option.textContent.toLowerCase().includes(term) ||
+                            option.dataset.campus.toLowerCase().includes(term)
                     )
 
                     guessOptions.innerHTML = ""
