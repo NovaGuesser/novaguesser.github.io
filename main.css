@@ -80,6 +80,18 @@ h3 {
     margin-top: clamp(0.5rem, 2vw, 1rem);
 }
 
+#shareButton {
+    margin-top: 12px;
+    padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 28px);
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: bold;
+    background: darkslateblue;
+    color: whitesmoke;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
 .guess-picker {
     width: min(calc(100vw - 2rem), 640px);
     margin: 0 auto;
